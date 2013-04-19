@@ -16,13 +16,13 @@ public class Main {
      * @param args 
      */
     public static void main(String args[]) {
-        try {
-            Connection oraConn = new DbEngine().dbConnection();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        
+//        try {
+//            Connection oraConn = new DbEngine().dbConnection();
+//        } catch (Exception e) {
+//            'e.printStackTrace();
+//        }
+        Test test = new Test();
+        test.testButton();
     }
 }
 
