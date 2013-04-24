@@ -23,7 +23,9 @@ public class Main {
 //        }
         Test test = new Test();
         //test.runButton();
-        test.runInvestmentViewer();
+        //test.runInvestmentViewer1();
+//        test.runInvestmentViewer2();
+        test.runRectangleMover();
     }
 }
 

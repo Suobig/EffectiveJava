@@ -5,8 +5,10 @@
 package ru.feib.popov.bigjava.lessons;
 
 //import java.awt.event.ActionListener;
+import ru.feib.popov.bigjava.lessons.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import ru.feib.popov.bigjava.lessons.timer.RectangleMover;
 
 /**
  *
@@ -39,8 +41,19 @@ public class Test {
         frame.setVisible(true);
     }
     
-    public void runInvestmentViewer() {
+    public void runInvestmentViewer1() {
         InvestmentViewer1 viewer = new InvestmentViewer1();
         viewer.createViewer();
+    }
+    
+    public void runInvestmentViewer2() {
+        InvestmentViewer2 viewer = new InvestmentViewer2();
+        viewer.createViewer();
+    }
+    
+    public void runRectangleMover() {
+        RectangleMover mover = new RectangleMover();
+        
+        mover.runMover();
     }
 }
