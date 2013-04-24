@@ -19,7 +19,7 @@ public class Test {
     public static final int BUTTON_CLICK_HEIGHT = 60;
     public static final int BUTTON_CLOSE_X = 60;
     
-    public void testButton() {
+    public void runButton() {
         JFrame frame = new JFrame();
         JButton buttonClick = new JButton("Click me!");
         frame.add(buttonClick);
@@ -37,5 +37,10 @@ public class Test {
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
+    
+    public void runInvestmentViewer() {
+        InvestmentViewer1 viewer = new InvestmentViewer1();
+        viewer.createViewer();
     }
 }

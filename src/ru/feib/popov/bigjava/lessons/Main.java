@@ -22,7 +22,8 @@ public class Main {
 //            'e.printStackTrace();
 //        }
         Test test = new Test();
-        test.testButton();
+        //test.runButton();
+        test.runInvestmentViewer();
     }
 }
 
