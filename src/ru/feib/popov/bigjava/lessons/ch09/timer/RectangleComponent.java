@@ -1,4 +1,4 @@
-package ru.feib.popov.bigjava.lessons.timer;
+package ru.feib.popov.bigjava.lessons.ch09.timer;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

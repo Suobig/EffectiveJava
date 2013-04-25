@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ru.feib.popov.bigjava.lessons.InvestmentViewer;
+package ru.feib.popov.bigjava.lessons.ch09.InvestmentViewer;
 
 import ru.feib.popov.bigjava.lessons.*;
 

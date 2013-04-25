@@ -1,4 +1,4 @@
-package ru.feib.popov.bigjava.lessons;
+package ru.feib.popov.databaseTester;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -4,11 +4,13 @@
  */
 package ru.feib.popov.bigjava.lessons;
 
+import ru.feib.popov.bigjava.lessons.ch09.InvestmentViewer.*;
+import ru.feib.popov.bigjava.lessons.ch09.mouse.*;
+//import ru.feib.popov.bigjava.lessons.ch09.timer.*;
 //import java.awt.event.ActionListener;
-import ru.feib.popov.bigjava.lessons.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import ru.feib.popov.bigjava.lessons.timer.RectangleMover;
+import ru.feib.popov.bigjava.lessons.ch09.timer.RectangleMover;
 
 /**
  *
@@ -22,6 +24,7 @@ public class Test {
     public static final int BUTTON_CLOSE_X = 60;
     
     public void runButton() {
+        
         JFrame frame = new JFrame();
         JButton buttonClick = new JButton("Click me!");
         frame.add(buttonClick);
@@ -56,4 +59,9 @@ public class Test {
         
         mover.runMover();
     }
-}
+    
+    public void runRectangleMouseMover() {
+        RectangleMouseMover mover = new RectangleMouseMover();
+        mover.drawRectangle();
+    }}
+

@@ -25,7 +25,8 @@ public class Main {
         //test.runButton();
         //test.runInvestmentViewer1();
 //        test.runInvestmentViewer2();
-        test.runRectangleMover();
+//        test.runRectangleMover();
+        test.runRectangleMouseMover();
     }
 }
 

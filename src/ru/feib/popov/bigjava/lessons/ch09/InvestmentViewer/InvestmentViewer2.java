@@ -1,4 +1,4 @@
-package ru.feib.popov.bigjava.lessons;
+package ru.feib.popov.bigjava.lessons.ch09.InvestmentViewer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
