@@ -26,7 +26,11 @@ public class Main {
         //test.runInvestmentViewer1();
 //        test.runInvestmentViewer2();
 //        test.runRectangleMover();
-        test.runRectangleMouseMover();
+//        test.runRectangleMouseMover();
+//        test.runDieSet();
+//        test.runQuizGradesSet();
+//        test.runQuizGradesSet2();
+        test.runSequenceDemo();
     }
 }
 

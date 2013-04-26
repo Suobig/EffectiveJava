@@ -6,6 +6,10 @@ package ru.feib.popov.bigjava.lessons;
 
 import ru.feib.popov.bigjava.lessons.ch09.InvestmentViewer.*;
 import ru.feib.popov.bigjava.lessons.ch09.mouse.*;
+import ru.feib.popov.bigjava.lessons.ch09.p1.*;
+import ru.feib.popov.bigjava.lessons.ch09.p2.*;
+import ru.feib.popov.bigjava.lessons.ch09.p7.*;
+import ru.feib.popov.bigjava.lessons.ch09.p8.*;
 //import ru.feib.popov.bigjava.lessons.ch09.timer.*;
 //import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -63,5 +67,26 @@ public class Test {
     public void runRectangleMouseMover() {
         RectangleMouseMover mover = new RectangleMouseMover();
         mover.drawRectangle();
-    }}
+    }
+    
+    public void runDieSet() {
+        DieSetBuilder builder = new DieSetBuilder();
+        builder.build();
+    }
+    
+    public void runQuizGradesSet() {
+        QuizGradesSet quizSet = new QuizGradesSet();
+        quizSet.buildSet();
+    }
+    
+    public void runQuizGradesSet2() {
+        QuizGradesSet2 quizSet = new QuizGradesSet2();
+        quizSet.buildSet();
+    }
+    
+    public void runSequenceDemo() {
+        SequenceDemo demo = new SequenceDemo();
+        demo.runDemo();
+    }
+}
 
