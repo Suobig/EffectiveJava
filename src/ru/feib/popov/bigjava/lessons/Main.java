@@ -30,7 +30,9 @@ public class Main {
 //        test.runDieSet();
 //        test.runQuizGradesSet();
 //        test.runQuizGradesSet2();
-        test.runSequenceDemo();
+//        test.runSequenceDemo();
+//        test.runAccountTester();
+        test.runQuestionDemo();
     }
 }
 

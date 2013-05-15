@@ -15,6 +15,9 @@ import ru.feib.popov.bigjava.lessons.ch09.p8.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import ru.feib.popov.bigjava.lessons.ch09.timer.RectangleMover;
+import ru.feib.popov.bigjava.lessons.ch10.accounts.*;
+import ru.feib.popov.bigjava.lessons.ch10.questions.*;
+
 
 /**
  *
@@ -86,6 +89,17 @@ public class Test {
     
     public void runSequenceDemo() {
         SequenceDemo demo = new SequenceDemo();
+        demo.runDemo();
+    }
+    
+    public void runAccountTester() {
+        TestAccounts test = new TestAccounts();
+        test.test();
+    }
+    
+    public void runQuestionDemo() {
+        QuestionDemo demo = new QuestionDemo();
+        
         demo.runDemo();
     }
 }
