@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import ru.feib.popov.bigjava.lessons.ch09.timer.RectangleMover;
 import ru.feib.popov.bigjava.lessons.ch10.accounts.*;
 import ru.feib.popov.bigjava.lessons.ch10.questions.*;
+import ru.feib.popov.bigjava.lessons.ch11.ex1.*;
 
 
 /**
@@ -101,6 +102,11 @@ public class Test {
         QuestionDemo demo = new QuestionDemo();
         
         demo.runDemo();
+    }
+    
+    public void testFileDataForm() {
+        FileDataForm form = new FileDataForm();
+        form.display();
     }
 }
 

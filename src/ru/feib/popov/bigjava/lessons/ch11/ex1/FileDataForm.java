@@ -5,7 +5,6 @@
 package ru.feib.popov.bigjava.lessons.ch11.ex1;
 
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
@@ -14,13 +13,20 @@ import javax.swing.JOptionPane;
  *
  * @author popov
  */
-public class FileDataForm extends javax.swing.JFrame {
-
+public class FileDataForm extends javax.swing.JFrame {  
+    private int mCountChars;
+    private int mCountWords;
+    private int mCountLines;
+    
     /**
      * Creates new form FileData
      */
     public FileDataForm() {
         initComponents();
+        mCountChars = 0;
+        mCountWords = 0;
+        mCountLines = 0;
+        fillLabels();
     }
 
     /**
@@ -121,8 +127,6 @@ public class FileDataForm extends javax.swing.JFrame {
     private void jButtonPickFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPickFileActionPerformed
         String FILE_NOT_FOUND_ERROR = "Selected file is no longer available "
                 + "and cannot be analyzed";
-        String BAD_LABEL_TEXT_ERROR = "";
-        // TODO add your handling code here:
         
         JFileChooser fc = new JFileChooser();
         
@@ -133,6 +137,10 @@ public class FileDataForm extends javax.swing.JFrame {
             
             try {
                 FileAnalyzer analyzer = new FileAnalyzer(file);
+                mCountChars += analyzer.getChars();
+                mCountWords += analyzer.getWords();
+                mCountLines += analyzer.getLines();
+                fillLabels();
             } catch (FileNotFoundException e) {
                 JOptionPane.showMessageDialog(this, FILE_NOT_FOUND_ERROR, 
                         null, JOptionPane.ERROR_MESSAGE);
@@ -141,7 +149,7 @@ public class FileDataForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonPickFileActionPerformed
 
-    public static void display() {
+    public void display() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -172,6 +180,12 @@ public class FileDataForm extends javax.swing.JFrame {
                 new FileDataForm().setVisible(true);
             }
         });
+    }
+    
+    private void fillLabels() {
+        this.jLabelCharactersNumber.setText(Integer.toString(mCountChars));
+        this.jLabelWordsNumber.setText(Integer.toString(mCountWords));
+        this.jLabelLinesNumber.setText(Integer.toString(mCountLines));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPickFile;

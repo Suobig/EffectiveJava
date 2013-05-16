@@ -38,11 +38,12 @@ public class FileAnalyzer {
             throw e;
         }
         
+        counterLines = 1;
         try(Scanner lineReader = new Scanner(file)) {
 
-            while (lineReader.hasNext()) {
+            while (lineReader.hasNextLine()) {
                 counterLines++;
-                lineReader.next();
+                lineReader.nextLine();
             }
         } catch (FileNotFoundException e) {
             throw e;
