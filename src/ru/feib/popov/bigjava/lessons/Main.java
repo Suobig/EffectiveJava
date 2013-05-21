@@ -33,7 +33,8 @@ public class Main {
 //        test.runSequenceDemo();
 //        test.runAccountTester();
 //        test.runQuestionDemo();
-        test.testFileDataForm();
+//        test.testFileDataForm();
+        test.testLinkedList();
     }
 }
 
