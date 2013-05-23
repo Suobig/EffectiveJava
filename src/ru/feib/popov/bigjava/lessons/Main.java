@@ -34,7 +34,9 @@ public class Main {
 //        test.runAccountTester();
 //        test.runQuestionDemo();
 //        test.testFileDataForm();
-        test.testLinkedList();
+//        test.testLinkedList();
+//        test.testLinkedListBycicle();
+        test.testLispList();
     }
 }
 

@@ -18,16 +18,16 @@ public class LinkedListTester {
     public void run() {
         newList();
         printList();
+//        reverse();
         downsize();
         printList();
     }
     
     public void downsize() {
         ListIterator<String> iterator = staff.listIterator();
-        while (iterator.hasNext()) {
-            iterator.next();
-            iterator.remove();
-            if (iterator.hasNext()) iterator.next();
+        
+        for (int i = 0; i < staff.size(); i++) {
+            staff.remove(i);
         }
     }
     
@@ -40,6 +40,13 @@ public class LinkedListTester {
         staff.add("Irina");
         staff.add("Dmitry");
         staff.add("Alexander");
+        staff.add("Vladimir");
+    }
+    
+    private void reverse() {        
+        for (int i = 0; i < staff.size(); i++) {
+            staff.add(i, staff.pollLast());
+        }
     }
     
     public void printList() {

@@ -19,6 +19,9 @@ import ru.feib.popov.bigjava.lessons.ch10.accounts.*;
 import ru.feib.popov.bigjava.lessons.ch10.questions.*;
 import ru.feib.popov.bigjava.lessons.ch11.ex1.*;
 import ru.feib.popov.bigjava.lessons.ch15.dataStructures.*;
+import ru.feib.popov.bigjava.lessons.ch15.LinkedListBycicle.*;
+import ru.feib.popov.bigjava.lessons.ch15.LispList.*;
+
 
 
 /**
@@ -112,6 +115,16 @@ public class Test {
     
     public void testLinkedList() {
         LinkedListTester tester = new LinkedListTester();
+        tester.run();
+    }
+    
+    public void testLinkedListBycicle() {
+        ListTester tester = new ListTester();
+        tester.run();
+    }
+    
+    public void testLispList() {
+        LispListTester tester = new LispListTester();
         tester.run();
     }
 }
