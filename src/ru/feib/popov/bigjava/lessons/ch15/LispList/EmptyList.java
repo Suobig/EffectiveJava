@@ -39,4 +39,9 @@ public class EmptyList implements LispList {
     
     @Override
     public String toString() {return "";}
+    
+    @Override
+    public LispList merge(LispList other) {
+        return other;
+    }
 }

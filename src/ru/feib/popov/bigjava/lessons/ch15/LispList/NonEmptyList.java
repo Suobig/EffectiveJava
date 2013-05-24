@@ -49,4 +49,28 @@ public class NonEmptyList implements LispList {
     public String toString() {
         return head() + tail().toString();
     }
+    
+    @Override
+    public LispList merge(LispList other) {
+        LispList newList = new EmptyList();
+        
+        int thisLength = this.length();
+        int otherLength = other.length();
+        LispList thisList = this;
+        LispList otherList = other;
+        
+        while (thisLength + otherLength > 0) {
+            if (thisLength > otherLength) { 
+                newList = newList.cons(thisList.head());
+                thisLength--;
+                thisList = thisList.tail();
+            } else {
+                newList = newList.cons(otherList.head());
+                otherLength--;
+                otherList = otherList.tail();
+            } 
+        }   
+        return newList;
+    }
 }
+

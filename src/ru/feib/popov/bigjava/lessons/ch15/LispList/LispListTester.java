@@ -12,7 +12,11 @@ public class LispListTester {
     private final static LispList NIL = new EmptyList();
     
     public void run() {
-        LispList list = NIL.cons("C").cons("B.").cons("A.");
-        System.out.println(list + " " + list.length());
+//        LispList list = NIL.cons("C").cons("B.").cons("A.");
+        LispList list1 = NIL.cons("1").cons("2").cons("3").cons("4");
+        LispList list2 = NIL.cons("5").cons("6");
+        LispList finalList = list1.merge(list2);
+        
+        System.out.println(finalList + " " + finalList.length());
     }
 }

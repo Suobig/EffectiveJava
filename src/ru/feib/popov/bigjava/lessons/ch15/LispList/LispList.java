@@ -14,5 +14,6 @@ public interface LispList {
     LispList tail();
     int length();
     NonEmptyList cons(Object listHead);
+    LispList merge(LispList other);
 }
 

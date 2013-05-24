@@ -172,7 +172,8 @@ public class FileDataForm extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FileDataForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
+        this.jButtonPickFile.setOpaque(false);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
