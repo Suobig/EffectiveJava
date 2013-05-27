@@ -21,6 +21,7 @@ import ru.feib.popov.bigjava.lessons.ch11.ex1.*;
 import ru.feib.popov.bigjava.lessons.ch15.dataStructures.*;
 import ru.feib.popov.bigjava.lessons.ch15.LinkedListBycicle.*;
 import ru.feib.popov.bigjava.lessons.ch15.LispList.*;
+import ru.feib.popov.bigjava.lessons.ch18.InvestmentViewer.*;
 
 
 
@@ -126,6 +127,11 @@ public class Test {
     public void testLispList() {
         LispListTester tester = new LispListTester();
         tester.run();
+    }
+    
+    public void testInvestmentViewer3() {
+        InvestmentFrame frame = new InvestmentFrame();
+        frame.display();
     }
 }
 

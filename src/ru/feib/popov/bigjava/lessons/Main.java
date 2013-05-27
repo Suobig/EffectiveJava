@@ -36,7 +36,8 @@ public class Main {
 //        test.testFileDataForm();
 //        test.testLinkedList();
 //        test.testLinkedListBycicle();
-        test.testLispList();
+//        test.testLispList();
+        test.testInvestmentViewer3();
     }
 }
 
