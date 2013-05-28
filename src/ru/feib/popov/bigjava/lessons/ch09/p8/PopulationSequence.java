@@ -61,7 +61,6 @@ public class PopulationSequence implements Sequence {
      */
     @Override
     public boolean hasNext() {
-        //TODO: make it
         return (position < populations.size() - 1);
     }
 }

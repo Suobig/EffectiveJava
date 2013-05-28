@@ -37,7 +37,9 @@ public class Main {
 //        test.testLinkedList();
 //        test.testLinkedListBycicle();
 //        test.testLispList();
-        test.testInvestmentViewer3();
+//        test.testInvestmentViewer3();]
+//        test.testFontFrame();
+        test.testColorViewer();
     }
 }
 

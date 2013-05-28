@@ -22,6 +22,8 @@ import ru.feib.popov.bigjava.lessons.ch15.dataStructures.*;
 import ru.feib.popov.bigjava.lessons.ch15.LinkedListBycicle.*;
 import ru.feib.popov.bigjava.lessons.ch15.LispList.*;
 import ru.feib.popov.bigjava.lessons.ch18.InvestmentViewer.*;
+import ru.feib.popov.bigjava.lessons.ch18.FontFrame.*;
+import ru.feib.popov.bigjava.lessons.ch18.ColorViewer.*;
 
 
 
@@ -132,6 +134,16 @@ public class Test {
     public void testInvestmentViewer3() {
         InvestmentFrame frame = new InvestmentFrame();
         frame.display();
+    }
+    
+    public void testFontFrame() {
+        FontViewer frame = new FontViewer();
+        frame.display();
+    }
+    
+    public void testColorViewer() {
+        ColorViewer viewer = new ColorViewer();
+        viewer.display();
     }
 }
 
