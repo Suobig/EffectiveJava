@@ -165,6 +165,9 @@
               <Color id="Default Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="RedChangeListener"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelRedValue">
           <Properties>
@@ -185,6 +188,9 @@
               <Color id="Default Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="BlueChangeListener"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSlider" name="jSliderGreen">
           <Properties>
@@ -192,6 +198,9 @@
             <Property name="maximum" type="int" value="255"/>
             <Property name="snapToTicks" type="boolean" value="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="GreenChangeListener"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelGreenName">
           <Properties>

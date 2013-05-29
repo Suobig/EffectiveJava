@@ -39,7 +39,13 @@ public class Main {
 //        test.testLispList();
 //        test.testInvestmentViewer3();]
 //        test.testFontFrame();
-        test.testColorViewer();
+//        test.testColorViewer();
+//        test.testGreetingThreads();
+//        test.testClicker();
+        test.testComboBox();
+        
+//        String[][] s = new String[2][];
+        
     }
 }
 

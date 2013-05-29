@@ -5,7 +5,6 @@
 package ru.feib.popov.bigjava.lessons.ch18.FontFrame;
 
 import java.awt.Font;
-
 /**
  *
  * @author popov
@@ -26,6 +25,7 @@ public class FontViewer extends javax.swing.JFrame {
         initComponents();
         askComponents();
         applyFont();
+        
     }
     
     private void askComponents() {

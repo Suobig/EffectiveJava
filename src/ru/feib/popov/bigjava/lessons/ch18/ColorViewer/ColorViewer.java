@@ -4,21 +4,21 @@
  */
 package ru.feib.popov.bigjava.lessons.ch18.ColorViewer;
 
-
-import java.awt.Toolkit;
-import java.awt.Dimension;
+import java.awt.Color;
 /**
  *
  * @author popov
  */
 public class ColorViewer extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form ColorViewer
      */
     public ColorViewer() {
         initComponents();
         moveToLocation();
+        listenSliders();
+        setColor();
     }
 
     /**
@@ -69,6 +69,11 @@ public class ColorViewer extends javax.swing.JFrame {
         jSliderRed.setMaximum(255);
         jSliderRed.setToolTipText("");
         jSliderRed.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jSliderRed.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                RedChangeListener(evt);
+            }
+        });
 
         jLabelRedValue.setText("255");
 
@@ -78,10 +83,20 @@ public class ColorViewer extends javax.swing.JFrame {
         jSliderBlue.setMaximum(255);
         jSliderBlue.setSnapToTicks(true);
         jSliderBlue.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jSliderBlue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                BlueChangeListener(evt);
+            }
+        });
 
         jSliderGreen.setMajorTickSpacing(1);
         jSliderGreen.setMaximum(255);
         jSliderGreen.setSnapToTicks(true);
+        jSliderGreen.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                GreenChangeListener(evt);
+            }
+        });
 
         jLabelGreenName.setText("G:");
 
@@ -165,6 +180,24 @@ public class ColorViewer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void RedChangeListener(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_RedChangeListener
+        this.jLabelRedValue.setText(
+                String.valueOf(this.jSliderRed.getValue()));
+        setColor();
+    }//GEN-LAST:event_RedChangeListener
+
+    private void GreenChangeListener(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_GreenChangeListener
+        this.jLabelGreenValue.setText(
+                String.valueOf(this.jSliderGreen.getValue()));
+        setColor();
+    }//GEN-LAST:event_GreenChangeListener
+
+    private void BlueChangeListener(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_BlueChangeListener
+        this.jLabelBlueValue.setText(
+                String.valueOf(this.jSliderBlue.getValue()));
+        setColor();
+    }//GEN-LAST:event_BlueChangeListener
+
     /**
      * @param args the command line arguments
      */
@@ -216,4 +249,22 @@ public class ColorViewer extends javax.swing.JFrame {
     private void moveToLocation() {
         this.setLocationRelativeTo(null);
     }
+
+    private void listenSliders() {
+        this.jLabelRedValue.setText(
+                String.valueOf(this.jSliderRed.getValue()));
+        this.jLabelGreenValue.setText(
+                String.valueOf(this.jSliderGreen.getValue()));
+        this.jLabelBlueValue.setText(
+                String.valueOf(this.jSliderBlue.getValue()));
+    }
+
+    private void setColor() {
+        Color rgb = new Color(
+                Integer.parseInt(this.jLabelRedValue.getText()),
+                Integer.parseInt(this.jLabelGreenValue.getText()),
+                Integer.parseInt(this.jLabelBlueValue.getText()));
+        this.jPanelColor.setBackground(rgb);
+    }
+    
 }

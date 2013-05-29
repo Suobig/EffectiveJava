@@ -14,6 +14,7 @@ import ru.feib.popov.bigjava.lessons.ch09.p8.*;
 //import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import ru.feib.popov.databaseTester.*;
 import ru.feib.popov.bigjava.lessons.ch09.timer.RectangleMover;
 import ru.feib.popov.bigjava.lessons.ch10.accounts.*;
 import ru.feib.popov.bigjava.lessons.ch10.questions.*;
@@ -24,6 +25,7 @@ import ru.feib.popov.bigjava.lessons.ch15.LispList.*;
 import ru.feib.popov.bigjava.lessons.ch18.InvestmentViewer.*;
 import ru.feib.popov.bigjava.lessons.ch18.FontFrame.*;
 import ru.feib.popov.bigjava.lessons.ch18.ColorViewer.*;
+import ru.feib.popov.bigjava.lessons.ch20.greeting.*;
 
 
 
@@ -144,6 +146,16 @@ public class Test {
     public void testColorViewer() {
         ColorViewer viewer = new ColorViewer();
         viewer.display();
+    }
+    
+    public void testGreetingThreads() { 
+        GreetingThreadRunner runner = new GreetingThreadRunner();
+        runner.go();
+    }
+    
+    public void testComboBox() {
+        NewJFrame frame = new NewJFrame();
+        frame.display();
     }
 }
 
