@@ -26,7 +26,8 @@ import ru.feib.popov.bigjava.lessons.ch18.InvestmentViewer.*;
 import ru.feib.popov.bigjava.lessons.ch18.FontFrame.*;
 import ru.feib.popov.bigjava.lessons.ch18.ColorViewer.*;
 import ru.feib.popov.bigjava.lessons.ch20.greeting.*;
-
+import ru.feib.popov.greatestCommonDenominatior.GcdCounter;
+import ru.feib.popov.Trash.*;
 
 
 /**
@@ -156,6 +157,39 @@ public class Test {
     public void testComboBox() {
         NewJFrame frame = new NewJFrame();
         frame.display();
+    }
+    
+    public void testGcdCounter() {        
+        final int ITERATIONS = 1000;
+        final int MULTIPLIER = 10000000;
+        int val1, val2;
+        
+        long gibbyStart = System.nanoTime();
+        for (int i = 0; i < ITERATIONS; i++) { 
+            val1 = (int) (Math.random() * MULTIPLIER);
+            val2 = (int) (Math.random() * MULTIPLIER);
+            GcdCounter.gibbyGcd(val1, val2);
+        }
+        long gibbyEnd = System.nanoTime();
+        
+        long animatorStart = System.nanoTime();
+        for (int i = 0; i < ITERATIONS; i++) { 
+            val1 = (int) (Math.random() * MULTIPLIER);
+            val2 = (int) (Math.random() * MULTIPLIER);
+            GcdCounter.animatorGcd(val1, val2);
+        }
+        long animatorEnd = System.nanoTime();
+        
+        System.out.println("Gibby GCD: " + 
+                (gibbyEnd - gibbyStart) / 1000000 + "ms");
+        
+        System.out.println("Animator GCD: " + 
+                (animatorEnd - animatorStart) / 1000000 + "ms");
+    }
+    
+    public void testFullScreen() {
+        FullScreenJFrame frame = new FullScreenJFrame();
+        frame.run();
     }
 }
 

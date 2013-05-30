@@ -42,10 +42,11 @@ public class Main {
 //        test.testColorViewer();
 //        test.testGreetingThreads();
 //        test.testClicker();
-        test.testComboBox();
+//        test.testComboBox();
+//        test.testGcdCounter();
         
 //        String[][] s = new String[2][];
-        
+        test.testFullScreen();
     }
 }
 
