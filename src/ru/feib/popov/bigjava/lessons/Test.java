@@ -4,6 +4,8 @@
  */
 package ru.feib.popov.bigjava.lessons;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import ru.feib.popov.bigjava.lessons.ch09.InvestmentViewer.*;
 import ru.feib.popov.bigjava.lessons.ch09.mouse.*;
 import ru.feib.popov.bigjava.lessons.ch09.p1.*;
@@ -155,8 +157,7 @@ public class Test {
     }
     
     public void testComboBox() {
-        NewJFrame frame = new NewJFrame();
-        frame.display();
+        new NewJFrame().display();
     }
     
     public void testGcdCounter() {        
@@ -190,6 +191,11 @@ public class Test {
     public void testFullScreen() {
         FullScreenJFrame frame = new FullScreenJFrame();
         frame.run();
+    }
+    
+    public void testHtml() {
+        HtmlParser.parceHTML(
+                "http://cbr.ru/currency_base/D_print.aspx?date_req=31.05.2013");
     }
 }
 
