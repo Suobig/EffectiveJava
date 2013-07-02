@@ -44,9 +44,11 @@ public class Main {
 //        test.testClicker();
 //        test.testComboBox();
 //        test.testGcdCounter();
-        test.testHtml();
-//        String[][] s = new String[2][];
+//        test.testHtml();
 //        test.testFullScreen();
+//        test.testMatrix();
+//        test.testVowelSet();
+        test.testCurrRateViewer();
     }
 }
 

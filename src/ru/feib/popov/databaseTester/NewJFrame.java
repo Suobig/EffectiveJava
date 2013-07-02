@@ -131,6 +131,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new NewJFrame().setVisible(true);
             }
@@ -144,7 +145,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTableDepartments;
     // End of variables declaration//GEN-END:variables
     
-    public static Properties createPropsShort(String database, String user, String password) {
+    public static Properties createPropsShort(
+            String database, String user, String password) {
         Properties props = new Properties();
         props.put("database", database);
         props.put("user", user);
@@ -152,13 +154,15 @@ public class NewJFrame extends javax.swing.JFrame {
         return props;
     }
     
-    public static Connection getConnection(String db, Properties props) throws SQLException {
+    public static Connection getConnection(String db, Properties props) 
+            throws SQLException {
         Connection conn = DriverManager.getConnection(db, props);
         System.out.println(conn);
         return conn;
     }
     
-    public static Class loadDriver(String driverFullName) throws ClassNotFoundException {
+    public static Class loadDriver(String driverFullName) 
+            throws ClassNotFoundException {
         Class c = Class.forName(driverFullName);
         System.out.println(c);
         return c;
@@ -166,7 +170,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void fillTable() throws ClassNotFoundException, SQLException{
         
-        Class oracleClass = loadDriver("oracle.jdbc.driver.OracleDriver");
+        loadDriver("oracle.jdbc.driver.OracleDriver");
         
         connOracle = getConnection("jdbc:oracle:oci:@TREASURY", 
                 createPropsShort("TREASURY", "test", "Aa123456"));

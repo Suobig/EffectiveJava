@@ -4,14 +4,12 @@
  */
 package ru.feib.popov.Trash;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author popov
  */
-public class CurrencyList<Currency> extends ArrayList<Currency> {
-    public String toString() {
-        
+public class Notebook {
+    public void print() {
+        System.out.println("Hello, i'm a notebook!");
     }
 }

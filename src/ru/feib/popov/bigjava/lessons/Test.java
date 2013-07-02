@@ -4,8 +4,6 @@
  */
 package ru.feib.popov.bigjava.lessons;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import ru.feib.popov.bigjava.lessons.ch09.InvestmentViewer.*;
 import ru.feib.popov.bigjava.lessons.ch09.mouse.*;
 import ru.feib.popov.bigjava.lessons.ch09.p1.*;
@@ -30,6 +28,7 @@ import ru.feib.popov.bigjava.lessons.ch18.ColorViewer.*;
 import ru.feib.popov.bigjava.lessons.ch20.greeting.*;
 import ru.feib.popov.greatestCommonDenominatior.GcdCounter;
 import ru.feib.popov.Trash.*;
+import ru.feib.popov.CurrRatesTable.*;
 
 
 /**
@@ -194,8 +193,51 @@ public class Test {
     }
     
     public void testHtml() {
-        HtmlParser.parceHTML(
-                "http://cbr.ru/currency_base/D_print.aspx?date_req=31.05.2013");
+        HtmlParser parser = new HtmlParser();
+        parser.parceHTML(
+                "http://cbr.ru/currency_base/D_print.aspx?date_req=02.07.2013");
+    }
+    
+    public void testMatrix() {
+        long timeStart = System.nanoTime();
+        
+        for (int i = 0; i < 100; i++) {
+            Matrix m = new Matrix(50, 50);
+            m.fillRandom(0, 1000);
+            String before = m.toString();
+            m.swapElemenets(2, 2, 3, 3);
+            String after = m.toString();   
+        }
+        
+        long timeEnd = System.nanoTime();
+        
+        System.out.println("Time per iteration: " + 
+                (timeEnd - timeStart) / 100 + "ns");
+    }
+    
+    public void testSuper() {
+        Notebook book = new MacBookAir();
+    }
+    
+    public void testVowelSet() {
+        VowelSet vowels = new VowelSet("Hello!");
+        
+        System.out.println("All vowels: " + vowels.getAll());
+        System.out.println("Met vowels: " + vowels.getMet());
+        System.out.println("Not met vowels: " + vowels.getNotMet());
+        
+        vowels.reset();
+        vowels.parseString("World");
+        
+        System.out.println("All vowels: " + vowels.getAll());
+        System.out.println("Met vowels: " + vowels.getMet());
+        System.out.println("Not met vowels: " + vowels.getNotMet());
+    }
+    
+    public void testCurrRateViewer() {
+        final String URL = 
+                "http://cbr.ru/currency_base/D_print.aspx?date_req=02.07.2013";
+        CurrRateViewer.run(URL);
     }
 }
-
+    
