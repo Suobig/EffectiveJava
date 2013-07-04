@@ -74,4 +74,8 @@ public class FullScreenJFrame extends JFrame{
                    }
         }
     }
+    
+    public static void main(String agrs[]) { 
+        System.out.println("I'm main too!");
+    }
 }

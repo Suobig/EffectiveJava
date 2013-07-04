@@ -14,10 +14,22 @@ public class CurrRatesTableModel extends AbstractTableModel {
     static final String COLUMN_NAMES[] = {"Код валюты", "Курс валюты"};
     static final int COLUMN_COUNT = 2;
     
-    private CurrRateList mList;
+    private CurrRateList list;
     
-    public CurrRatesTableModel(CurrRateList list) {
-        mList = list;
+    public CurrRatesTableModel() {
+        
+    }
+    
+    public CurrRatesTableModel(CurrRateList aList) {
+        list = aList;
+    }
+    
+    public void setList(CurrRateList aList) {
+        list = aList;
+    }
+    
+    public CurrRateList getList() {
+        return list;
     }
     
     @Override
@@ -37,17 +49,18 @@ public class CurrRatesTableModel extends AbstractTableModel {
     
     @Override
     public int getRowCount() {
-        return mList.getSize();
+        return (list == null) ? 0 : list.getSize();
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) 
             throws IllegalArgumentException {
-        if (rowIndex > mList.getSize()) throw new IllegalArgumentException();
+        if (rowIndex > list.getSize()) throw new IllegalArgumentException();
+        if (list == null) return null;
         if(columnIndex == 0) {
-            return mList.getItem(rowIndex).getNumber();
+            return list.getItem(rowIndex).getNumber();
         } else if (columnIndex == 1) {
-            return mList.getItem(rowIndex).getRate();
+            return list.getItem(rowIndex).getRate();
         } else {
             throw new IllegalArgumentException();
         }        

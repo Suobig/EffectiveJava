@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ru.feib.popov.bigjava.lessons;
+package ru.feib.popov.bigjava.lessons;;
 
-import java.sql.Connection;
+import ru.feib.popov.Trash.*;
 
 /**
  * Main class
@@ -49,6 +49,7 @@ public class Main {
 //        test.testMatrix();
 //        test.testVowelSet();
         test.testCurrRateViewer();
+//        JavaApplication.foo();
     }
 }
 

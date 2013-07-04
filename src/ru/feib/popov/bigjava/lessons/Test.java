@@ -154,11 +154,7 @@ public class Test {
         GreetingThreadRunner runner = new GreetingThreadRunner();
         runner.go();
     }
-    
-    public void testComboBox() {
-        new NewJFrame().display();
-    }
-    
+        
     public void testGcdCounter() {        
         final int ITERATIONS = 1000;
         final int MULTIPLIER = 10000000;
@@ -235,9 +231,7 @@ public class Test {
     }
     
     public void testCurrRateViewer() {
-        final String URL = 
-                "http://cbr.ru/currency_base/D_print.aspx?date_req=02.07.2013";
-        CurrRateViewer.run(URL);
+        CurrRateViewer.run();
     }
 }
     
