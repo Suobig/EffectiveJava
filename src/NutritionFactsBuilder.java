@@ -1,11 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
+import java.io.File;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Collections;
+
+
 
 /**
  *
- * @author popov
+ * @author Suobig
  */
 //Builder pattern
 public class NutritionFactsBuilder {
@@ -20,7 +25,7 @@ public class NutritionFactsBuilder {
         //Required parameters
         private final int servingSize;
         private final int servings;
-
+        
         //Optional paramteters
         private int calories        = 0;
         private int fat             = 0;
@@ -59,6 +64,7 @@ public class NutritionFactsBuilder {
     private void caller() {
         NutritionFactsBuilder cocaCola = 
                 new NutritionFactsBuilder.Builder(240, 8).
-                calories(100).sodium(35).carbohydate(27).build();
+               calories(100).sodium(35).carbohydate(27).build();
     }
+    
 }
