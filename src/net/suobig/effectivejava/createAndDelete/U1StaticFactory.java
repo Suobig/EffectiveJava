@@ -2,7 +2,7 @@
 package net.suobig.effectivejava.createAndDelete;
 
 
-public class UseStaticFactory {
+public class U1StaticFactory {
 /*
 Static factory метод – метод класса, возвращающий экземпляр этого класса. 
 Например, метод возвращающий объект вместо примитива:*/
