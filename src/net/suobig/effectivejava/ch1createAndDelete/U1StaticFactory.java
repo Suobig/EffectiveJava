@@ -1,5 +1,5 @@
 
-package net.suobig.effectivejava.createAndDelete;
+package net.suobig.effectivejava.ch1createAndDelete;
 
 
 public class U1StaticFactory {

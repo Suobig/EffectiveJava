@@ -1,4 +1,4 @@
-package net.suobig.effectivejava.createAndDelete;
+package net.suobig.effectivejava.ch1createAndDelete;
 
 public class U4NonInstantiable {
 /* Классы, которые представляют собой наборы статичных методов и полей, 

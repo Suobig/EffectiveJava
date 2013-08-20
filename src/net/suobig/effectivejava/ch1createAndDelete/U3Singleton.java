@@ -1,14 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package net.suobig.effectivejava.createAndDelete;
+package net.suobig.effectivejava.ch1createAndDelete;
 
-/**
- *
- * @author popov
- */
-public class U3Singleton {
 /*
 Синглтон - это класс, реализация которого гарантирует существование не более 
 одного экземпляра. Чаще всего синглтон представляют собой системные компоненты,
@@ -16,11 +7,11 @@ public class U3Singleton {
 
   До версии 1.5 существовало 2 способа объявить синглтон: 
   * 1 Публичное статическое поле и private конструктор*/
-    public static class  SaticFieldSingleton {
-        public static final SaticFieldSingleton INSTANCE = 
-            new SaticFieldSingleton();
-        private SaticFieldSingleton() {};
-    }
+class  SaticFieldSingleton {
+    public static final SaticFieldSingleton INSTANCE = 
+        new SaticFieldSingleton();
+    private SaticFieldSingleton() {};
+}
 /* Так как публичный конструктор отствует, единственный экземлпяр этого класса 
  будет существовать в поле INSTANCE и создание других будет невозможно. 
  Существует, однако, уязвимость: при наличии соответствующих привелегий можно 
@@ -30,7 +21,7 @@ public class U3Singleton {
  экземпляр.
  
  * 2 Private поле и public static factory метод*/
-    public static class StaticFactorySingleton {
+class StaticFactorySingleton {
         private static final StaticFactorySingleton INSTANCE = 
                 new StaticFactorySingleton();
         private StaticFactorySingleton() { }
@@ -50,15 +41,15 @@ public class U3Singleton {
 декларировать implements Serializable. Чтобы класс продолжал оставаться 
 синглтоном, необходимо декларировать все его поля как transient и реализовать
 метод readResolve():*/
-        private Object readResolve() {
-            return INSTANCE;
-        }
+    private Object readResolve() {
+        return INSTANCE;
     }
+}
  /* Начиная с релиза 1.5 появился третий подход к реализации синглтона через 
 Enum:*/
-    public enum EnumSingleton {
-        INSTANCE;
-    }
+enum EnumSingleton {
+    INSTANCE;
+}
  /* Этот подход анлогичен подходу с публичным полем, с той разницей, что короче
 в записи, автоматически поддерживает сериализацию и предоставляет 
 железобетонные гарантии защиты от атак через reflection или сериализацию.
@@ -66,4 +57,3 @@ Enum:*/
 Не смотря на то, что этот подход пока что широко не используется, это луший
 способ реализовать синглтон.
   */
-}
