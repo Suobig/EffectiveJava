@@ -6,7 +6,8 @@ package net.suobig.effectivejava.ch2allObjectMethods;
 
 import java.awt.Color;
 
-public class U8OverridingEquals {
+
+public class U08_OverridingEquals {
 /*  Неправильное переопределение метода equals может привести к серьезным 
  проблемам. Самое простое - не переопределять этот метод вообще. Это подходит
  в следующих случаях:
@@ -34,7 +35,6 @@ y.equals(z) = true, то x.equals(z) = true
 
     Пример нарушения симметричности:*/
 }
-
 class CaseInsensitiveString {  
     String s;
     

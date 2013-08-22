@@ -1,6 +1,6 @@
 package net.suobig.effectivejava.ch1createAndDelete;
 
-public class U4NonInstantiable {
+public class U04_NonInstantiable {
 /* Классы, которые представляют собой наборы статичных методов и полей, 
 считаются плохим тоном в программировании, однако у них есть своя область 
 применения - они могут использоваться для группировки методов для примитивов

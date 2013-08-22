@@ -8,11 +8,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+
 /**
  *
  * @author popov
  */
-public class U5UnnecessaryObjects {
+public class U05_UnnecessaryObjects {
 /*  Там, где это возможно, используйте уже существующий объект вместо создания 
  нового*/
     String s = new String("stringette"); //Не делайте так!
@@ -30,7 +31,6 @@ public class U5UnnecessaryObjects {
 он не изменяется между вызовами:
  */
 }
-
 class PersonUnnecessary {
     private final Date birthDate = null;
     //Остальная часть кода опущена
