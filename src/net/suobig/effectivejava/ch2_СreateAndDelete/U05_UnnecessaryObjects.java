@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.suobig.effectivejava.ch1createAndDelete;
+package net.suobig.effectivejava.ch2_СreateAndDelete;
 
 import java.util.Calendar;
 import java.util.Date;

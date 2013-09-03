@@ -1,4 +1,4 @@
-package net.suobig.effectivejava.ch1createAndDelete;
+package net.suobig.effectivejava.ch2_СreateAndDelete;
 
 /**
  *

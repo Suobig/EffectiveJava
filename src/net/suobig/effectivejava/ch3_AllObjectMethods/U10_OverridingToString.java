@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.suobig.effectivejava.ch2allObjectMethods;
+package net.suobig.effectivejava.ch3_AllObjectMethods;
 
 /*  В классе Object метод toString реализован следующим образом:
     [Имя класса]@[hashCode в 16-ричном представлении]

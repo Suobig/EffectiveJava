@@ -1,5 +1,5 @@
 
-package net.suobig.effectivejava.ch2allObjectMethods;
+package net.suobig.effectivejava.ch3_AllObjectMethods;
 
 import java.util.HashMap;
 import java.util.Map;
