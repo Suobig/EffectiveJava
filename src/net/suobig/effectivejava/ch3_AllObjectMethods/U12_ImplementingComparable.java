@@ -1,6 +1,7 @@
 package net.suobig.effectivejava.ch3_AllObjectMethods;
 
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 /*  Метод compareTo не объявлен в Object, он является частью интерфейса
 Comparable. Реализация данного интерфейса позволяет не только сравнить объекты
@@ -142,4 +143,189 @@ final class PhoneNumberComparable
     /*  Однако, данный трюк надо использовать с большой осторожностью: если
 вдруг разность превысит Integer.MAX_VALUE, результат вычислений будет 
 неправильным, а ошибку будет невероятно трудно обнаружить.*/
+}
+
+
+class BookPage {
+    private String text;
+    private BookPage next;
+    
+    public String getText() {
+        return text;
+    }
+    
+    public BookPage getNext() {
+        return next;
+    }
+    
+    public BookPage(String text) {
+        this.text = text;
+    }
+    
+    public void add(String text) {
+        BookPage temp = this.next;
+        this.next = new BookPage(text);
+        this.next.next = temp;
+    }
+    
+    public void addLast(String text) {
+        BookPage currentPage = this;
+        
+        while(currentPage.next != null) 
+            currentPage = currentPage.next;
+        currentPage.next = new BookPage(text);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        BookPage book = new BookPage("Page1");
+        book.addLast("Page2");
+        book.addLast("Page3");
+        book.add("Page1.5");
+        System.out.println(book.getText());
+        System.out.println(book.getNext().getText());
+        System.out.println(book.getNext().getNext().getText());
+        System.out.println(book.getNext().getNext().getNext().getText());
+    }
+}
+
+
+class MyClass implements Comparable<MyClass> { 
+    private String name;
+    private int price;
+    private double discount;
+    private Calendar date;
+    
+    public String getName() {
+        return name;
+    }
+    
+    public double getPrice() {
+        return price;
+    }
+    
+    public double getDiscount() {
+        return discount;
+    }
+    
+    public Calendar getDate() {
+        return date;
+    }
+    
+    public MyClass(String name, int price, double discount, Calendar date) {
+        this.name = name;
+        this.price = price;
+        this.discount = discount;
+        this.date = date;
+    }
+        
+    @Override
+    public int compareTo(MyClass that) {
+        int dtCompare = this.date.compareTo(that.date);
+        if (dtCompare != 0) 
+            return dtCompare;
+        
+        int nameCompare = this.name.compareTo(that.name);
+        if (nameCompare != 0) 
+            return nameCompare;
+        
+        int priceCompare = Double.compare(this.price, that.price);
+        if (priceCompare != 0) 
+            return priceCompare;
+        
+        return Double.compare(this.discount, that.discount);
+    }
+    
+    @Override
+    public String toString() {
+        return name + ", " + price + ", " + discount + ", " + 
+               new SimpleDateFormat("dd.MM.yyyy").format(date.getTime());
+    }
+}
+ 
+class Tester {
+    public static void main(String[] args) {
+        Calendar dt1 = Calendar.getInstance();
+        dt1.set(2013, Calendar.JUNE, 8);
+ 
+        Calendar dt2 = Calendar.getInstance();
+        dt2.set(2013, Calendar.JUNE, 1);
+ 
+        MyClass a = new MyClass("a", 100, 0., dt1);
+        MyClass b = new MyClass("b", 200, 0., dt2);   
+        MyClass c = new MyClass("c", 50, 0., dt2);   
+        MyClass[] arr = new MyClass[3];
+        
+               
+        arr[0] = a;
+        arr[1] = b;
+        arr[2] = c;
+        
+        MyClassComparator comparator = new MyClassComparator();
+        comparator.setCompareMethod(MyClassCompareMethods.BY_NAME);
+        
+        Arrays.sort(arr, comparator);
+        System.out.println("Compare by Name:");
+        System.out.println(arr[0]);
+        System.out.println(arr[1]);
+        System.out.println(arr[2]);
+        
+        comparator.setCompareMethod(MyClassCompareMethods.BY_DATE);
+        
+        Arrays.sort(arr, comparator);
+        System.out.println("Compare by Date:");
+        System.out.println(arr[0]);
+        System.out.println(arr[1]);
+        System.out.println(arr[2]);
+        
+        
+        comparator.setCompareMethod(MyClassCompareMethods.BY_PRICE);
+        
+        Arrays.sort(arr, comparator);
+        System.out.println("Compare by Price:");
+        System.out.println(arr[0]);
+        System.out.println(arr[1]);
+        System.out.println(arr[2]);
+    }
+}
+ 
+enum MyClassCompareMethods {
+    BY_NAME,
+    BY_PRICE,
+    BY_DISCOUNT,
+    BY_DATE;
+}
+ 
+class MyClassComparator implements Comparator<MyClass> {
+    private MyClassCompareMethods compareMethod;
+    
+    public void setCompareMethod(MyClassCompareMethods method) {
+        compareMethod = method;
+    }
+    
+    @Override
+    public int compare(MyClass o1, MyClass o2) {
+        switch (compareMethod) {
+            case BY_NAME:
+                int nameDiff = o1.getName().compareTo(o2.getName());
+                if (nameDiff != 0) 
+                    return nameDiff;
+                break;
+            case BY_PRICE: 
+                int priceDiff = Double.compare(o1.getPrice(), o2.getPrice());
+                if (priceDiff != 0) 
+                    return priceDiff;
+                break;
+            case BY_DISCOUNT:
+                int discountDiff = Double.compare(
+                        o1.getDiscount(), o2.getDiscount());
+                if (discountDiff != 0) 
+                    return discountDiff;
+            case BY_DATE:
+                int dateDiff = o1.getDate().compareTo(o2.getDate());
+        }
+        //Если приоритетное сравнение вернуло 0 - сравниваем по умолчанию
+        return o1.compareTo(o2);
+    }    
 }
