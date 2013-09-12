@@ -2,13 +2,13 @@ package net.suobig.effectivejava.ch3_AllObjectMethods;
 
 import java.util.*;
 
-/*  Метода compareTo не объявлен в Object. Это единственный метод интерфейса
-Comparable. Реализация данного интерфейса позволит не только сравнить объекты
-как equals, но и отранжировать их. Это подразумевает, что экземпляры класса
-можно упорядочить. А значит, содержащие их коллеции просто сортировать
- * Arrays.sort(a);
-а также просто искать, вчислять экстремумы, добавлять в автоматически сорируемые
-коллекции и т.д. 
+/*  Метод compareTo не объявлен в Object, он является частью интерфейса
+Comparable. Реализация данного интерфейса позволяет не только сравнить объекты
+как это делает метод equals(), но и отранжировать, упорядочить их.  А значит, 
+коллекции, которые содержат методы, можно сортировать. Например так:
+* Arrays.sort(a);
+Также для экземляров такого класса просто искать, вчислять экстремумы, 
+добавлять в автоматически сорируемые коллекции и т.д. 
 
     Напримем, пользуясь тем, что String implements Comparable можно создать
 такой класс:*/
@@ -63,7 +63,7 @@ ClassCastException. Во всех стандартных библиотеках 
 
     Пример реализации метода compareTo:*/
 
-class CaseInsensitiveStringComparable 
+class CaseInsensitiveStringComparable
         implements Comparable<CaseInsensitiveStringComparable> {
     String s;
     
@@ -71,7 +71,7 @@ class CaseInsensitiveStringComparable
     public int compareTo(CaseInsensitiveStringComparable cis) {
         return String.CASE_INSENSITIVE_ORDER.compare(s, cis.s);
     }
-    // Remainder omitted
+    // Остальное опущено
 }
 
 /*  Обратите внимание, что класс реализует интерфейс 
@@ -127,6 +127,7 @@ final class PhoneNumberComparable
     /*  Этот метод правильно работает, но можно написать более лаконично, если
 вспомнить, что требуется лишь знак возвращаемого значения, а его величина не 
 важна:*/
+    @Override
     public int compareTo (PhoneNumberComparable pn) {
         int areaCodeDiff = areaCode - pn.areaCode; 
         if (areaCodeDiff != 0)
