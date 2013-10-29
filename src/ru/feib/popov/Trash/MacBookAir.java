@@ -14,7 +14,11 @@ public class MacBookAir extends Notebook {
         System.out.println("Hello, i'm an apple!");
     }
     
+    public void printAir() {
+        System.out.println("Hello, i'm a Mac!");
+    }
+    
     public void printSuper() {
-        super.print();
+//        super.print();
     }
 }

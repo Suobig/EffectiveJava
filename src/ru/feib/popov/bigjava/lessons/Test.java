@@ -189,28 +189,9 @@ public class Test {
     }
     
     public void testHtml() {
-        HtmlParser parser = new HtmlParser();
-        parser.parceHTML(
-                "http://cbr.ru/currency_base/D_print.aspx?date_req=02.07.2013");
+        CurrRateLoader parser = new CurrRateLoader();
     }
-    
-    public void testMatrix() {
-        long timeStart = System.nanoTime();
-        
-        for (int i = 0; i < 100; i++) {
-            Matrix m = new Matrix(50, 50);
-            m.fillRandom(0, 1000);
-            String before = m.toString();
-            m.swapElemenets(2, 2, 3, 3);
-            String after = m.toString();   
-        }
-        
-        long timeEnd = System.nanoTime();
-        
-        System.out.println("Time per iteration: " + 
-                (timeEnd - timeStart) / 100 + "ns");
-    }
-    
+
     public void testSuper() {
         Notebook book = new MacBookAir();
     }

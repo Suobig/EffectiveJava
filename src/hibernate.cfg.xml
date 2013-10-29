@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:oci:@TREASURY</property>
+    <property name="hibernate.connection.username">test</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.connection.pool_size">1</property>
+    <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+    <mapping resource="ru/feib/popov/HibernateTutorial/Event.hbm.xml"/>
+    <mapping resource="ru/feib/popov/HibernateTutorial/Person.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

@@ -8,8 +8,7 @@ package ru.feib.popov.Trash;
  *
  * @author popov
  */
-public class Notebook {
-    public void print() {
-        System.out.println("Hello, i'm a notebook!");
-    }
+public abstract class Notebook {
+    public abstract void print();
 }
+

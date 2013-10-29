@@ -5,7 +5,6 @@
 package ru.feib.popov.Trash;
 
 /**
- *
  * @author popov
  */
 
@@ -73,9 +72,5 @@ public class FullScreenJFrame extends JFrame{
                         Am_I_In_FullScreen = false;
                    }
         }
-    }
-    
-    public static void main(String agrs[]) { 
-        System.out.println("I'm main too!");
     }
 }

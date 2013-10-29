@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    
+    <class 
+        name="ru.feib.popov.HibernateTutorial.Person" 
+        dynamic-insert="false"
+        dynamic-update="false"
+        mutable="true"
+        optimistic-lock="version"
+        polymorphism="implicit"
+        select-before-update="false"
+        table="TEST_PERSON"
+    >
+        <id name="id" column="ID_PERSON">
+            <generator class="sequence">
+                <param name="sequence">SEQ_TEST_PERSON</param>
+            </generator>
+        </id>
+        
+        <property name="age"/>
+        
+        <property name="firstName" column="FIRST_NAME"/>
+        <property name="lastName" column="LAST_NAME"/>
+        
+        <set name="events" table="TEST_PERSON_EVENT">
+            <key column="ID_PERSON"/>
+            <many-to-many column="ID_EVENT" class="ru.feib.popov.HibernateTutorial.Event"/>
+        </set>
+    </class>
+</hibernate-mapping>

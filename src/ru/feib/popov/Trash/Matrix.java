@@ -3,103 +3,242 @@
  * and open the template in the editor.
  */
 package ru.feib.popov.Trash;
-
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Matrix {
-    private ArrayList<ArrayList<Integer>> rows;
-    private int mRowCount, mColumnCount;
-    private int mPrintSize = 0;
+    private static Random randomEngine  = new Random();
+    
+    private int[][] matrix;
+    private int rows;
+    private int columns;
+    
+        
+
+    /**
+     * Public constructor
+     * @param rows
+     * @param columns 
+     */
+    public Matrix(int rows, int columns) {
+        matrix = new int[rows][columns];
+        this.rows = rows;
+        this.columns = columns;
+    }
+    
+    //######################################################################
+    //Static factories
+    //######################################################################
     
     /**
-     * Initialize matrix with 0 values
-     * Initialize mRowCount and mColumnCount variables
-     * @param rowCount
-     * @param columnCount 
+     * Creates matrix of the standard form. Equivalent of public constructor
+     * @param rows
+     * @param columns
+     * @return 
      */
-    public Matrix(int rowCount, int columnCount) {
-        rows = new ArrayList<>();
-        mRowCount = rowCount;
-        mColumnCount = columnCount;
-        
-        for (int i = 0; i < rowCount; i++) {
-            ArrayList<Integer> row = new ArrayList<>();
-            for (int j = 0; j < columnCount; j++) {
-                row.add(0);
-            }
-            rows.add(row);
-        }
+    public static Matrix standard(int rows, int columns) {
+        Matrix instance = new Matrix(rows, columns);
+        return instance;
     }
     
     /**
-     * Fill Matrix with random values 
-     * @param from random values from
-     * @param to random values to
-     */
-    public void fillRandom(int from, int to) {
-        mPrintSize = (int)Math.log10(to) + 1;
-        
-        Random randomizer = new Random();
-        randomizer.setSeed(System.nanoTime());
-                
-        for (int i = 0; i < mRowCount; i++) {
-            ArrayList<Integer> row = rows.get(i);
-            for (int j = 0; j < mColumnCount; j++) {
-                //TODO: update null
-                int randomInt = randomizer.nextInt(to - from) + from;
-                row.set(j, randomInt);
-            }
-        }
-    }  
-    
-    /**
-     * Get matrix element
-     * @param i row
-     * @param j column
-     * @return element value
-     * @throws ArrayIndexOutOfBoundsException 
-     */
-    public int getValue(int i, int j) throws ArrayIndexOutOfBoundsException {
-        if (i > mRowCount || j > mColumnCount || i < 0 || j < 0) 
-            throw new ArrayIndexOutOfBoundsException();
-        
-        return rows.get(i).get(j);
+     * Creates a vector-row
+     * @param size
+     * @return 
+     */    
+    public static Matrix vectorRow(int size) {
+        Matrix instance = new Matrix(1, size);
+        return instance;
     }
     
-    public void swapElemenets(int i1, int j1, int i2, int j2) 
-            throws ArrayIndexOutOfBoundsException {
-        if (i1 > mRowCount || 
-                i2 > mRowCount ||
-                j1 > mColumnCount ||
-                j2 > mColumnCount ||
-                i1 < 0 ||
-                i2 < 0 ||
-                j1 < 0 ||
-                j2 < 0) 
-            throw new ArrayIndexOutOfBoundsException();
+    /**
+     * Creates a vector-column
+     * @param size
+     * @return 
+     */
+    public static Matrix vectorColumn(int size) {
+        Matrix instance = new Matrix(size, 1);
+        return instance;
+    }
+    
+    /**
+     * Creates a square matrix
+     * @param size
+     * @return 
+     */
+    public static Matrix square(int size) {
+        Matrix instance = new Matrix(size, size);
+        return instance;
+    }
+    
+    /**
+     * Creates an identity matrix
+     * @param size
+     * @return 
+     */
+    public static Matrix identity(int size) {
+        Matrix instance = new Matrix(size, size);
         
-        int val1 = rows.get(i1).get(j1);
-        int val2 = rows.get(i2).get(j2);
-        rows.get(i1).set(i1, val2);
-        rows.get(i2).set(i2, val1);
+        for (int i = 1; i <= size; i++)
+            instance.setValue(i, i, 1);
+        return instance;
+    }
+    
+    //######################################################################
+    //Getters&setters
+    //######################################################################
+    
+    /**
+     * 
+     * @return number of rows
+     */
+    public int getRows() {
+        return this.rows;
+    }
+    
+    /**
+     * 
+     * @return number of columns
+     */
+    public int getColumns() {
+        return this.columns;
+    }
+    
+    /**
+     * Set into certain cell certain value
+     * @param row cell row
+     * @param column cell column
+     * @param value input value
+     * @throws IllegalArgumentException if row or column is out of range
+     */    
+    public void setValue(int row, int column, int value) 
+            throws IllegalArgumentException {
+        if (this.rows < row - 1 || row <= 0) 
+            throw new IllegalArgumentException("Illegal row");
+        if (this.columns < column - 1 || column <= 0) 
+            throw new IllegalArgumentException("Illegal column");
+        
+        matrix[row - 1][column - 1] = value;
+    }
+    
+    public int getValue(int row, int column) 
+            throws IllegalArgumentException {
+        if (this.rows < row - 1 || row <= 0) 
+            throw new IllegalArgumentException("Illegal row");
+        if (this.columns < column - 1 || column <= 0) 
+            throw new IllegalArgumentException("Illegal column");
+        
+        return matrix[row - 1][column - 1];
+    }
+    
+    //######################################################################
+    //Operations with matrixes
+    //######################################################################
+    
+    /**
+     * 
+     * @param m1
+     * @param m2
+     * @return new matrix, representing sum of two matrixes
+     * @throws IllegalArgumentException if matrixes have different size
+     */
+    public Matrix add(Matrix m1, Matrix m2)
+            throws IllegalArgumentException {
+        if(m1.getRows() != m2.getRows() || 
+                m1.getColumns() != m2.getColumns()) {
+            throw new IllegalArgumentException(
+                    "Matrixes should have same size");
+        }
+        
+        Matrix instance = new Matrix (m1.getRows(), m1.getColumns());
+        for (int i = 1; i <= m1.getRows(); i++) {
+            for (int j = 1; j <= m1.getColumns(); j++) {
+                instance.setValue(i, j, 
+                        m1.getValue(i, j) + m2.getValue(i, j));
+            }            
+        }
+        return instance;
+    }    
+    
+    /**
+     * 
+     * @param m1
+     * @param m2
+     * @return new matrix representing result of subtraction m2 from m1
+     * @throws IllegalArgumentException  if matrixes have different size
+     */
+    public static Matrix subtract(Matrix m1, Matrix m2)
+            throws IllegalArgumentException {
+        if(m1.getRows() != m2.getRows() || 
+                m1.getColumns() != m2.getColumns()) {
+            throw new IllegalArgumentException(
+                    "Matrixes should have same size");
+        }
+        
+        Matrix instance = new Matrix (m1.getRows(), m1.getColumns());
+        for (int i = 1; i <= m1.getRows(); i++) {
+            for (int j = 1; j <= m1.getColumns(); j++) {
+                instance.setValue(i, j, 
+                        m1.getValue(i, j) - m2.getValue(i, j));
+            }            
+        }
+        return instance;
+    }
+    
+    /**
+     * 
+     * @param m1
+     * @param m2
+     * @return representing result of multiplication of m1 on m2
+     * @throws IllegalArgumentException if m1.column != m2.row
+     */
+    public static Matrix multiply(Matrix m1, Matrix m2) 
+            throws IllegalArgumentException {
+        if(m1.getColumns() != m2.getRows()) {
+            throw new IllegalArgumentException(
+                    "Number of columns in first matrix should equal "
+                    + "number of rows in second matrix");
+        }
+        
+        Matrix instance = new Matrix(m1.getRows(), m2.getColumns());
+        for (int row1 = 1; row1 <= m1.getRows(); row1++) {
+            for (int column2 = 1; column2 <= m2.getColumns(); column2++) {
+                int sum = 0;
+                for (int i = 1; i <= m1.getColumns(); i++) {
+                    sum += m1.getValue(row1, i) * 
+                            m2.getValue(i, column2);
+                }
+                instance.setValue(row1, column2, sum);
+            }
+        }
+        return instance;
+    }
+    
+    //######################################################################
+    //Other methods
+    //######################################################################
+    
+    /**
+     * fills matrix with random values up to certain maximum value
+     * @param maxValue 
+     */
+    public void fillRandom(int maxValue) {
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.columns; j++) {
+                matrix[i][j] = randomEngine.nextInt(maxValue);
+            }
+        }
     }
     
     @Override
     public String toString() {
-        String print = "";
-        
-        for (int i = 0; i < mRowCount; i++) {
-            for (int val : rows.get(i)) {
-                print += String.format("%-" + mPrintSize + "d", val);
+        String str = "";
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.columns; j++) {
+                str += this.matrix[i][j] + 
+                        ((j == this.columns - 1) ?  "" : " "); 
             }
-            print += "\n";
+            str += (i == this.rows - 1) ?  "" : "\n";
         }
-        Boolean var = null;        
-        return print;
+        return str;
     }
-    
-    
-   
-    
 }
